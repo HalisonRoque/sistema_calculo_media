@@ -20,9 +20,9 @@ public class PrimeiraClasse {
 		/*o HashMap é uma lista que dentro dela identifica uma sequencia de valores*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
-		List<Aluno> alunosAprovados = new ArrayList<Aluno>();
+		/*List<Aluno> alunosAprovados = new ArrayList<Aluno>();
 		List<Aluno> alunosReprovados = new ArrayList<Aluno>();
-		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
+		List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();*/
 		
 		
 		for (int qtd = 1; qtd <= 5; qtd++) {
@@ -106,28 +106,30 @@ public class PrimeiraClasse {
 		
 		for (Aluno aluno : alunos) {
 			if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+				maps.get(StatusAluno.APROVADO).add(aluno);
+				
 			} else if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
-				alunosRecuperacao.add(aluno);
+				maps.get(StatusAluno.RECUPERACAO).add(aluno);
+				
 			} else if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.REPROVADO)) {
-				alunosReprovados.add(aluno);
+				maps.get(StatusAluno.REPROVADO).add(aluno);
 			}
 		}
 		
 		
 		System.out.println("----------------Lista de Aprovados------------------");		
-		for (Aluno aluno : alunosAprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Resultado: \nAluno: " + aluno.getNome() + "\nStatus: " + aluno.getAlunoAprovado2() + "\nMedia: " + aluno.getMediaNota());
 			System.out.println("-------------------------------------------------");
 		}
 	
 		System.out.println("----------------Lista de Recuperacao------------------");		
-		for (Aluno aluno : alunosRecuperacao) {
+		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Resultado: \nAluno: " + aluno.getNome() + "\nStatus: " + aluno.getAlunoAprovado2() + "\nMedia: " + aluno.getMediaNota());
 			System.out.println("-------------------------------------------------");
 		}
 		System.out.println("----------------Lista de Reprovados------------------");		
-		for (Aluno aluno : alunosReprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Resultado: \nAluno: " + aluno.getNome() + "\nStatus: " + aluno.getAlunoAprovado2() + "\nMedia: " + aluno.getMediaNota());
 			System.out.println("-------------------------------------------------");
 		}
