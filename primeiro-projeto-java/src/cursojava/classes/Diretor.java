@@ -5,6 +5,9 @@ public class Diretor extends Pessoa {
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
+	
+	
+	
 	public String getRegistroEducacao() {
 		return registroEducacao;
 	}
