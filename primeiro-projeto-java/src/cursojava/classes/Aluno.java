@@ -7,20 +7,15 @@ import cursojava.constantes.StatusAluno;
 
 /*Esta é nossa classe/objeto que representa o Aluno*/
 
-public class Aluno {
+public class Aluno extends Pessoa {
 	
 	/*Atributos do Aluno*/
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
+	
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
 	private int materias;
+	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	
 
@@ -32,7 +27,6 @@ public class Aluno {
 		this.materias = materias;
 	}
 	/*chamando a classe Disciplina e instaciando ela*/
-	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	
 	public void setDisciplinas(List<Disciplina> disciplinas) {
