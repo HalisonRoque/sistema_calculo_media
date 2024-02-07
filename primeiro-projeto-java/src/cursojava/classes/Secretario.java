@@ -35,7 +35,7 @@ public class Secretario extends Pessoa{
 	@Override /*metodo obrigatorio da classe pai Pessoa*/
 	public double salario() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1750;
 	}
 	
 	
