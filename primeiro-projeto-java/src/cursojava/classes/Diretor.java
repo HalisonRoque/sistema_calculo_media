@@ -33,6 +33,11 @@ public class Diretor extends Pessoa {
 				+ ", registroGeral=" + registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae
 				+ ", nomePai=" + nomePai + "]";
 	}
+	@Override /*metodo obrigatorio da classe pai Pessoa*/
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	

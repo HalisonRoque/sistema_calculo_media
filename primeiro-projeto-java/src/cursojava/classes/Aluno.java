@@ -180,7 +180,19 @@ public class Aluno extends Pessoa {
 		return true;
 	}
 	
+	@Override  /*identifica um metodo subescrito ----- para chamar esse metodo basta escrever o nome do metodo*/
+	public boolean pessoaMaiorIdade() {
+		return super.pessoaMaiorIdade();
+	}
 	
-	
+	public String msgMaiorIdade() {
+		return this.pessoaMaiorIdade() ? "obaa você é maior de idade" : "ixxi, você não é maior de idade";
+	}
+
+	@Override /*metodo obrigatorio da classe pai Pessoa*/
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
