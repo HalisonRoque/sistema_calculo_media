@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
 
 public class PrimeiraClasse {
@@ -17,9 +18,14 @@ public class PrimeiraClasse {
 		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
-		 
 		
-		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+		
+		Secretario secretario = new Secretario();
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
+		
+		
+		if (secretario.autenticar()) {
 			
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			/* o HashMap é uma lista que dentro dela identifica uma sequencia de valores */
@@ -148,7 +154,7 @@ public class PrimeiraClasse {
 				System.out.println("-------------------------------------------------");
 			}
 		}else {
-			System.out.println("login ou senha incorretos");
+			JOptionPane.showMessageDialog(null, "acesso não permitido");;
 		
 		}
 		

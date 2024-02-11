@@ -1,11 +1,16 @@
 package cursojava.classes;
 
-public class Secretario extends Pessoa{
+import cursojava.interfaces.PermitirAcesso;
+
+public class Secretario extends Pessoa implements PermitirAcesso{
+	/*classe secretario extendendo da classe pai (Pessoa) e implementando da interface (PermitirAcesso)*/
 	
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
 	
+	private String login;
+	private String senha;
 	
 	
 	public String getRegistro() {
@@ -35,7 +40,28 @@ public class Secretario extends Pessoa{
 	@Override /*metodo obrigatorio da classe pai Pessoa*/
 	public double salario() {
 		// TODO Auto-generated method stub
-		return 1750;
+		return 1750 * 0.9;
+	}
+	
+	/*implemento da interface "PermitiAcesso"*/
+	/*esse é o metodo de verificar a autentificação*/
+	@Override
+	public boolean autenticar() {		
+		return login.equals("admin") && senha.equals("admin"); /*se login e senha for "admin" retorna verdadeiro*/
+	}
+	
+	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
