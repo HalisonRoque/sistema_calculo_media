@@ -10,6 +10,7 @@ import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
+import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasse {
 	
@@ -19,9 +20,10 @@ public class PrimeiraClasse {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
+		PermitirAcesso permitirAcesso = new Secretario(login, senha); 
 
 		
-		if (new Secretario().autenticar(login, senha)) {
+		if (permitirAcesso.autenticar()) {
 			
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			/* o HashMap é uma lista que dentro dela identifica uma sequencia de valores */

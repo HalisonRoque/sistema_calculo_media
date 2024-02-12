@@ -5,5 +5,7 @@ public interface PermitirAcesso {
 	 * na interface fica apenas a declaração do metodo
 	 * a regra de negocio é usada nas classes que implementam seus metodos*/
 	public boolean autenticar(String login, String senha);
+	
+	public boolean autenticar();
 
 }

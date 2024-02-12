@@ -8,6 +8,19 @@ public class Secretario extends Pessoa implements PermitirAcesso{
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
+	
+	private String login;
+	private String senha;
+	
+	/*construtor para exigir que o secretario passe sempre o login e senha*/
+	public Secretario(String login, String senha) {	
+		this.login = login;
+		this.senha = senha;
+	}
+	
+	/*construto padrão sem nenhum valor informado*/
+	public Secretario() {		
+	}
 
 	
 	
@@ -44,8 +57,13 @@ public class Secretario extends Pessoa implements PermitirAcesso{
 	/*implemento da interface "PermitiAcesso"*/
 	/*esse é o metodo de verificar a autentificação*/
 	@Override
-	public boolean autenticar(String login, String senha) {
-		// TODO Auto-generated method stub
+	public boolean autenticar(String login, String senha) {	
+		this.login = login;
+		this.senha = senha;
+		return autenticar();
+	}
+	@Override
+	public boolean autenticar() {		
 		return login.equals("admin") && senha.equals("admin");
 	}
 	
