@@ -8,9 +8,7 @@ public class Secretario extends Pessoa implements PermitirAcesso{
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
-	
-	private String login;
-	private String senha;
+
 	
 	
 	public String getRegistro() {
@@ -46,23 +44,13 @@ public class Secretario extends Pessoa implements PermitirAcesso{
 	/*implemento da interface "PermitiAcesso"*/
 	/*esse é o metodo de verificar a autentificação*/
 	@Override
-	public boolean autenticar() {		
-		return login.equals("admin") && senha.equals("admin"); /*se login e senha for "admin" retorna verdadeiro*/
+	public boolean autenticar(String login, String senha) {
+		// TODO Auto-generated method stub
+		return login.equals("admin") && senha.equals("admin");
 	}
 	
-	
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+
+
 	
 	
 
