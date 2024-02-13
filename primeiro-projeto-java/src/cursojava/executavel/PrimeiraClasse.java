@@ -18,6 +18,9 @@ public class PrimeiraClasse {
 	
 	public static void main(String[] args) {
 		
+		try {
+
+		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 		
@@ -154,6 +157,12 @@ public class PrimeiraClasse {
 		}else {
 			JOptionPane.showMessageDialog(null, "acesso não permitido");;
 		
+		}
+		
+		/*tratando exceção do sistema*/
+		}catch (Exception e) {
+			e.printStackTrace(); /*imprimir erro no console java é de extrema importancia, pois mostra onde esta o erro no codigo*/
+			JOptionPane.showMessageDialog(null,"erro ao processar notas");
 		}
 		
 	}
