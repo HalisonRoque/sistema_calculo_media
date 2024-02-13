@@ -161,8 +161,24 @@ public class PrimeiraClasse {
 		
 		/*tratando exceção do sistema*/
 		}catch (Exception e) {
+			
+			StringBuilder saida = new StringBuilder(); /*classe do java para ser trabalhado com string em execessoes */
 			e.printStackTrace(); /*imprimir erro no console java é de extrema importancia, pois mostra onde esta o erro no codigo*/
-			JOptionPane.showMessageDialog(null,"erro ao processar notas");
+			
+			/*metodo da classe Exception que imprime uma mensageem de erro na qual classe ou metodo do erro*/
+			System.out.println(" Mensagen: " + e.getMessage());
+			
+			for (int i = 0; i < e.getStackTrace().length; i++) {
+			/*mostrar de maneira mais expecificada */
+				
+				saida.append("\n classe de erro: " + e.getStackTrace()[i].getClassName());
+				saida.append("\n metodo de erro: " + e.getStackTrace()[i].getMethodName());
+				saida.append("\n linha de erro: " + e.getStackTrace()[i].getLineNumber());
+				saida.append("\n Class: " + e.getClass().getName());
+				
+			}
+			
+			JOptionPane.showMessageDialog(null,"erro ao processar notas" + saida.toString());
 		}
 		
 	}
