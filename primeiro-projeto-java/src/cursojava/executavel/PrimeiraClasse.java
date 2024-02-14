@@ -1,8 +1,11 @@
 package cursojava.executavel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -11,6 +14,7 @@ import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.excecao.ExcecaoProcessarNota;
 import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasse {
@@ -19,7 +23,9 @@ public class PrimeiraClasse {
 	public static void main(String[] args) {
 		
 		try {
-
+		
+			lerArquivo();
+		
 		
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
@@ -33,25 +39,26 @@ public class PrimeiraClasse {
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
 			/*
-			 * List<Aluno> alunosAprovados = new ArrayList<Aluno>(); List<Aluno>
-			 * alunosReprovados = new ArrayList<Aluno>(); List<Aluno> alunosRecuperacao =
-			 * new ArrayList<Aluno>();
+			 * List<Aluno> alunosAprovados = new ArrayList<Aluno>(); 
+			 * List<Aluno> alunosReprovados = new ArrayList<Aluno>(); 
+			 * List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
 			 */
 
 			for (int qtd = 1; qtd <= 5; qtd++) {
 
 				/* input que mostra uma caixa de dialogo para deixar o programa dinamico */
-				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
-				/*
-				 * String idade = JOptionPane.showInputDialog("Qual o sua idade?"); String
-				 * dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento?");
-				 * String registroGeral = JOptionPane.showInputDialog("Qual o RG?"); String cpf
-				 * = JOptionPane.showInputDialog("Qual o CPF?"); String nomeEscola =
-				 * JOptionPane.showInputDialog("Qual o nome da Escola?"); String nomeMae =
-				 * JOptionPane.showInputDialog("Qual o nome da mae?"); String nomePai =
-				 * JOptionPane.showInputDialog("Qual o nome do pai?"); String dataMatricula =
-				 * JOptionPane.showInputDialog("Qual a data da matricula?"); String
-				 * serieMatriculada = JOptionPane.showInputDialog("Qual a serie matriculada?");
+				String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");				
+				String idade = JOptionPane.showInputDialog("Qual o sua idade?");
+				
+				
+				 /*String dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento?");
+				 * String registroGeral = JOptionPane.showInputDialog("Qual o RG?"); 
+				 * String cpf = JOptionPane.showInputDialog("Qual o CPF?");
+				 * String nomeEscola = JOptionPane.showInputDialog("Qual o nome da Escola?");
+				 * String nomeMae = JOptionPane.showInputDialog("Qual o nome da mae?"); 
+				 * String nomePai = JOptionPane.showInputDialog("Qual o nome do pai?"); 
+				 * String dataMatricula = JOptionPane.showInputDialog("Qual a data da matricula?"); 
+				 * String serieMatriculada = JOptionPane.showInputDialog("Qual a serie matriculada?");
 				 * 
 				 * 
 				 * 
@@ -60,9 +67,9 @@ public class PrimeiraClasse {
 				/* aluno1 é uma referencia para o objeto Aluno */
 				Aluno aluno1 = new Aluno();
 				aluno1.setNome(nome);
-				/*
-				 * aluno1.setIdade(Integer.valueOf(idade));
-				 * aluno1.setDataNascimento(dataNascimento);
+				aluno1.setIdade(Integer.valueOf(idade));
+				
+				 /* aluno1.setDataNascimento(dataNascimento);
 				 * aluno1.setRegistroGeral(registroGeral); aluno1.setNumeroCpf(cpf);
 				 * aluno1.setNomeEscola(nomeEscola); aluno1.setNomeMae(nomeMae);
 				 * aluno1.setNomePai(nomePai); aluno1.setDataMatricula(dataMatricula);
@@ -160,7 +167,7 @@ public class PrimeiraClasse {
 		}
 		
 		/*tratando exceção do sistema*/
-		}catch (Exception e) {
+		}catch (NumberFormatException e) { /*captura exceção de formato de numero não compativel*/
 			
 			StringBuilder saida = new StringBuilder(); /*classe do java para ser trabalhado com string em execessoes */
 			e.printStackTrace(); /*imprimir erro no console java é de extrema importancia, pois mostra onde esta o erro no codigo*/
@@ -171,6 +178,7 @@ public class PrimeiraClasse {
 			for (int i = 0; i < e.getStackTrace().length; i++) {
 			/*mostrar de maneira mais expecificada */
 				
+				/*esta passando o boolean*/
 				saida.append("\n classe de erro: " + e.getStackTrace()[i].getClassName());
 				saida.append("\n metodo de erro: " + e.getStackTrace()[i].getMethodName());
 				saida.append("\n linha de erro: " + e.getStackTrace()[i].getLineNumber());
@@ -178,9 +186,32 @@ public class PrimeiraClasse {
 				
 			}
 			
-			JOptionPane.showMessageDialog(null,"erro ao processar notas" + saida.toString());
+			JOptionPane.showMessageDialog(null,"erro de conversão de numero" + saida.toString());
+		
+		}catch (NullPointerException e) { /*captura uma exceção com valor null*/
+			JOptionPane.showMessageDialog(null, "Opa, Null Pointer exection : " + e.getClass());
+		
+		}catch (Exception e) { /*captura todas as exceções que não prevemos*/
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "erro inesperado : " + e.getClass().getName());
+		
+		}finally { /*sempre é executado ocorrendo erros ou não. porque?*/
+			/*Finally sempre é executado quando precisa executar um processo acontecendo erro ou não no sistema*/
+			JOptionPane.showMessageDialog(null, "obrigado pelo aprendizado");
 		}
 		
+	}
+	
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		try {
+			
+			File fil = new File("lines.txt");	
+			Scanner scanner = new Scanner(fil);
+		}catch (FileNotFoundException e) {
+			
+			/*o throw serve para lançar a exceção na classe*/
+			throw new ExcecaoProcessarNota(e.getMessage());
+		}	
 	}
 
 }
