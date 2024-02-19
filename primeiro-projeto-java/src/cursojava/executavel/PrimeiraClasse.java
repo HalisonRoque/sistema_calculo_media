@@ -189,7 +189,7 @@ public class PrimeiraClasse {
 			JOptionPane.showMessageDialog(null,"erro de conversão de numero" + saida.toString());
 		
 		}catch (NullPointerException e) { /*captura uma exceção com valor null*/
-			JOptionPane.showMessageDialog(null, "Opa, Null Pointer exection : " + e.getClass());
+			JOptionPane.showMessageDialog(null, "Opa, Null Pointer exception : " + e.getClass());
 		
 		}catch (Exception e) { /*captura todas as exceções que não prevemos*/
 			e.printStackTrace();
@@ -202,16 +202,11 @@ public class PrimeiraClasse {
 		
 	}
 	
-	public static void lerArquivo() throws ExcecaoProcessarNota {
-		try {
+	public static void lerArquivo() throws FileNotFoundException  {
+	
+			File fil = new File("lines.txt");
+
 			
-			File fil = new File("lines.txt");	
-			Scanner scanner = new Scanner(fil);
-		}catch (FileNotFoundException e) {
-			
-			/*o throw serve para lançar a exceção na classe*/
-			throw new ExcecaoProcessarNota(e.getMessage());
-		}	
 	}
 
 }
