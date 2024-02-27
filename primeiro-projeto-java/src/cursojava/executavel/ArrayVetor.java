@@ -43,6 +43,7 @@ public class ArrayVetor {
 		for(int pos = 0; pos < disci.getNota().length; pos++) {
 			System.out.println("\t"+ disci.getNota()[pos]);
 			
+			/*descobrindo a maios nota do array*/
 			if(pos == 0) {
 				notaMax = disci.getNota()[pos];
 			} else {
