@@ -31,10 +31,12 @@ public class ArrayVetor {
 
 	
 	System.out.println("Nome do aluno = " + aluno.getNome());
+	/*percorrendo as disciplinas do aluno*/
 	for (Disciplina disci : aluno.getDisciplinas()) {
 		System.out.println("------------------Disciplinas do aluno -----------------");
 		System.out.println("Disciplina : " + disci.getDisciplina());
 		System.out.println("notas:");
+		/*percorrendo as notas do aluno*/
 		for(int pos = 0; pos < disci.getNota().length; pos++) {
 			System.out.println("\t"+ disci.getNota()[pos]);
 		}
