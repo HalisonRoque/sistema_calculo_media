@@ -15,10 +15,15 @@ public class Matriz {
 		notas[1][2] = 80;
 		
 		
+		/*percorrendo uma matriz
+		 * fazemos primeiro um for para percorrer as linhas depois outro for para percorrer as colunas*/
+		for(int posLinha = 0; posLinha < notas.length; posLinha++) {
 		
-		
-		System.out.println(notas[0][1]);
-		System.out.println(notas[1][1]);
+			for(int posColuna = 0; posColuna < notas[posLinha].length; posColuna++) {
+				/*OBSERVE QUE EXISTE DOIS COLCHETES PARA PERCORRER A MATRIZ*/
+				System.out.println("valor da matriz= " + notas[posLinha][posColuna]);
+			}
+		}
 		
 		
 	}
