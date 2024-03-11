@@ -55,6 +55,19 @@ public class ArrayVetor {
 		
 		System.out.println("a maior nota " + notaMax);
 		System.out.println(aluno.getAlunoAprovado2());
+		
+		Aluno[] arrayAlunos = new Aluno[1];
+		
+		arrayAlunos[0] = aluno;
+		
+		for (int pos = 0; pos < arrayAlunos.length; pos++) {
+			System.out.println("O nome do aluno é: " + arrayAlunos[pos].getNome());
+			
+			for(Disciplina d : arrayAlunos[pos].getDisciplinas()) {
+				System.out.println("Nome da Disciplina é " + d.getDisciplina());
+			}
+		}
+		
 	}
 	
 	

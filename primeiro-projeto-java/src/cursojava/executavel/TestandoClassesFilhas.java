@@ -2,6 +2,7 @@ package cursojava.executavel;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Diretor;
+import cursojava.classes.Disciplina;
 import cursojava.classes.Pessoa;
 import cursojava.classes.Secretario;
 
@@ -10,6 +11,7 @@ public class TestandoClassesFilhas {
 		Aluno aluno = new Aluno();
 		aluno.setNome("halison roque");
 		aluno.setSerieMatriculado("4º ano");
+		
 		
 		
 		Diretor diretor = new Diretor();
@@ -28,6 +30,7 @@ public class TestandoClassesFilhas {
 		teste(aluno);
 		teste(secretario);
 		teste(diretor);
+		
 		
 		
 	}
